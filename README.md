@@ -1,4 +1,4 @@
-# azrulcode.github.io
+# azrulcode.com
 
 Personal portfolio — built with Vite + TypeScript. Terminal/ASCII aesthetic with dark & light mode.
 
