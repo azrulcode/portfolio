@@ -3,94 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azrul Yeop</title>
-    <meta name="description" content="Azrul Yeop — I do code." />
+    <title>Azrul Yeop — developer</title>
+    <meta name="description" content="Azrul Yeop — Malaysian developer, building in public. I do code." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <nav id="nav">
-      <span class="nav-prompt">~/azrul<span class="accent"> $</span></span>
+      <span class="nav-prompt">~/azrul <b>$</b></span>
       <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#contact">contact</a></li>
+        <li><a href="#about"><span class="idx">01</span>about</a></li>
+        <li><a href="#skills"><span class="idx">02</span>skills</a></li>
+        <li><a href="#projects"><span class="idx">03</span>projects</a></li>
+        <li><a href="#contact"><span class="idx">04</span>contact</a></li>
       </ul>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">[ light ]</button>
+      <div class="nav-right">
+        <div class="accent-dots" id="accent-dots" aria-label="Accent color">
+          <button class="accent-dot" data-accent="#00ff88" style="--c:#00ff88" aria-label="green"></button>
+          <button class="accent-dot" data-accent="#33e1ff" style="--c:#33e1ff" aria-label="cyan"></button>
+          <button class="accent-dot" data-accent="#ffb454" style="--c:#ffb454" aria-label="amber"></button>
+          <button class="accent-dot" data-accent="#ff6e9c" style="--c:#ff6e9c" aria-label="pink"></button>
+          <button class="accent-dot" data-accent="#9d8cff" style="--c:#9d8cff" aria-label="purple"></button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">[ light ]</button>
+      </div>
     </nav>
 
     <main>
-      <section id="hero">
-        <pre id="ascii-art" class="ascii-name" aria-label="Azrul"></pre>
-        <p class="hero-tagline">
-          <span class="prompt-line">
-            <span class="accent">$</span>
-            <span id="typewriter"></span><span class="cursor">█</span>
-          </span>
-        </p>
-      </section>
-
-      <section id="about" class="section reveal">
-        <h2 class="section-title"><span class="accent">//</span> about</h2>
-        <div class="about-layout">
-          <div class="about-content">
-            <p>Hey, I'm <span class="accent">Azrul Yeop</span>.</p>
-            <p>
-              A student from Kvtaa — a boring college, I say.
-              Chasing a dream to move to the USA as a developer.
+      <div class="wrap">
+        <!-- HERO -->
+        <section id="hero">
+          <div class="hero-left">
+            <div class="hero-kicker"><span class="dot"></span>developer · building in public</div>
+            <pre id="ascii-art" class="ascii-name" aria-label="Azrul"></pre>
+            <p class="hero-tagline">
+              <span class="prompt-line"><span class="sigil">$</span><span id="typewriter"></span><span class="cursor">█</span></span>
             </p>
-            <p>This is my corner of the internet.</p>
+            <p class="hero-sub">
+              Malaysian developer chasing a <span class="accent">dream to build in the USA</span>. I love coding.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn--primary" href="#projects">view work <span class="arrow">→</span></a>
+              <a class="btn" href="https://github.com/azrulcode" target="_blank" rel="noopener">github <span class="arrow">↗</span></a>
+            </div>
           </div>
-          <canvas
-            id="ascii-portrait"
-            class="ascii-portrait"
-            aria-label="ASCII portrait of Azrul"
-          ></canvas>
-        </div>
-      </section>
 
-      <section id="skills" class="section reveal">
-        <h2 class="section-title"><span class="accent">//</span> skills</h2>
-        <div class="skills-grid" id="skills-grid"></div>
-      </section>
+          <div class="hero-right">
+            <div class="monitor">
+              <div class="monitor-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="title">world://monitor</span>
+                <div class="mon-modes" id="mon-modes">
+                  <button data-mode="globe" class="on">globe</button>
+                  <button data-mode="map">map</button>
+                </div>
+                <span class="live"><i></i>live</span>
+              </div>
+              <div class="globe-stage">
+                <canvas id="globe"></canvas>
+                <div class="vignette"></div>
+                <div class="globe-caption">
+                  <span>net.trace</span>
+                  <span class="route" id="tele-route">KUL→SFO</span>
+                </div>
+              </div>
+              <div class="telemetry">
+                <div class="cell"><div class="k">nodes</div><div class="v"><span class="accent">26</span>/26 online</div></div>
+                <div class="cell"><div class="k">latency</div><div class="v"><span id="tele-latency">214</span><span class="accent">ms</span></div></div>
+                <div class="cell"><div class="k">uptime</div><div class="v" id="tele-uptime">00:00:00</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <section id="projects" class="section reveal">
-        <h2 class="section-title"><span class="accent">//</span> projects</h2>
-        <div class="projects-grid" id="projects-grid"></div>
-      </section>
+        <!-- ABOUT -->
+        <section id="about" class="section reveal">
+          <div class="section-head"><span class="sec-idx">01</span><span class="sec-title">// about</span><span class="sec-rule"></span></div>
+          <div class="about-grid">
+            <div class="about-prose">
+              <p class="lead">Hey — I'm <span class="accent">Azrul Yeop</span>.</p>
+              <p>A student out of Kvtaa — a quiet little college, I'll be honest. I spend my hours learning how good software is actually put together, one repo at a time.</p>
+              <p>This is my corner of the internet.</p>
+              <p class="note">// goal: pack the bags, move to the USA, and live independently.</p>
+              <div class="about-meta">
+                <span class="tag"><span class="accent">⌖</span> Malaysia · GMT+8</span>
+                <span class="tag">student</span>
+                <span class="tag">building in public</span>
+                <span class="tag"><span class="accent">●</span> open to USA roles</span>
+              </div>
+            </div>
 
-      <section id="contact" class="section reveal">
-        <h2 class="section-title"><span class="accent">//</span> contact</h2>
-        <div class="contact-list">
-          <a
-            href="https://github.com/azrulcode"
-            target="_blank"
-            rel="noopener"
-            class="contact-item"
-          >
-            <span class="accent">$</span> open github.com/azrulcode
-          </a>
-          <a href="mailto:azrul.code@hotmail.com" class="contact-item">
-            <span class="accent">$</span> mailto azrul.code@hotmail.com
-          </a>
-        </div>
-      </section>
+            <div class="portrait-col">
+              <div class="portrait-frame" id="portrait-frame">
+                <canvas id="ascii-portrait" class="ascii-portrait" aria-label="ASCII portrait"></canvas>
+              </div>
+              <div class="portrait-cap">
+                drop a square photo · or <b id="portrait-browse">browse</b>
+                <input id="portrait-file" type="file" accept="image/*" hidden />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section reveal">
+          <div class="section-head"><span class="sec-idx">02</span><span class="sec-title">// skills</span><span class="sec-rule"></span></div>
+          <div class="skills-grid" id="skills-grid"></div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section reveal">
+          <div class="section-head"><span class="sec-idx">03</span><span class="sec-title">// projects</span><span class="sec-rule"></span></div>
+          <div class="projects-grid" id="projects-grid"></div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section reveal">
+          <div class="section-head"><span class="sec-idx">04</span><span class="sec-title">// contact</span><span class="sec-rule"></span></div>
+          <div class="contact-grid">
+            <a class="contact-item" href="https://github.com/azrulcode" target="_blank" rel="noopener">
+              <span class="sigil">$</span><span class="cmd">open github.com/azrulcode</span><span class="arrow">↗</span>
+            </a>
+            <a class="contact-item" href="mailto:azrul.code@hotmail.com">
+              <span class="sigil">$</span><span class="cmd">mail azrul.code@hotmail.com</span><span class="arrow">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <div class="footer-grid">
+            <span>© 2026 <span class="accent">Azrul Yeop</span> · all rights reserved</span>
+            <span>built with care · <a href="https://github.com/azrulcode" target="_blank" rel="noopener">azrulcode</a> · ASCII portrait inspired by <a href="https://gazijarin.com" target="_blank" rel="noopener">gazijarin.com</a></span>
+          </div>
+        </footer>
+      </div>
     </main>
-
-    <footer>
-      <p>© 2025 <span class="accent">Azrul Yeop</span>. All rights reserved.</p>
-      <p class="footer-credit">
-        Built with TypeScript + Vite.
-        ASCII portrait technique inspired by
-        <a href="https://gazijarin.com" target="_blank" rel="noopener">gazijarin.com</a>.
-      </p>
-    </footer>
 
     <script type="module" src="/src/main.ts"></script>
   </body>
