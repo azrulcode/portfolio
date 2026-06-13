@@ -2,3 +2,7 @@ node_modules/
 dist/
 .DS_Store
 *.local
+
+# Local preview helpers (machine-specific; not part of the site)
+.preview-server.pl
+.claude/launch.json

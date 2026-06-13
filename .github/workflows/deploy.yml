@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+# This site is plain HTML/CSS/JS with NO build step, so the workflow just
+# copies the static files into a folder and publishes it.
+
 on:
   push:
     branches: [main]
@@ -14,30 +17,25 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble static site
+        run: |
+          mkdir _site
+          cp index.html style.css CNAME _site/
+          cp profile.png og-image.png _site/ 2>/dev/null || true
+          cp -r src _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
       - id: deploy
         uses: actions/deploy-pages@v4
